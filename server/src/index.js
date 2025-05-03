@@ -1,0 +1,27 @@
+const express = require("express")
+const cors = require("cors")
+const { config } = require("dotenv")
+const mongoose = require("mongoose")
+
+const app = express()
+app.use(express.json())
+app.use(cors())
+config()
+
+mongoose.connect(process.env.MONGODBURI, { dbName: "techsoulpng" })
+    .then(() => {
+        console.log("MongoDB Connected")
+    })
+    .catch((err) => {
+        console.error(err)
+    })
+
+const { PORT = 8000 } = process.env
+
+app.listen(PORT, () => {
+    console.log(`Server running on PORT ${PORT}`)
+})
+
+const authRouter = require('./routes/auth')
+
+app.use('/auth', authRouter)

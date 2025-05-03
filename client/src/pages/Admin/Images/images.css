@@ -1,0 +1,11 @@
+@media screen and (max-width: 779px) {
+    .images-top {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .images-top button {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,77 @@
+import React, { useEffect, useState } from 'react'
+import './admin.css'
+import { NavLink, Route, Routes } from 'react-router-dom'
+import Dashboard from './Dashboard'
+import { BsArrowRight } from 'react-icons/bs'
+import { GrAnalytics } from 'react-icons/gr'
+import { CiUser } from 'react-icons/ci'
+import { FiLogOut } from 'react-icons/fi'
+import Images from './Images'
+import { IoImages, IoWallet } from 'react-icons/io5'
+import Categories from './Categories'
+import { TbCategory2 } from 'react-icons/tb'
+import { FaUsers } from 'react-icons/fa'
+import Users from './Users'
+import Subscriptions from './Subscriptions'
+import Upload from './Upload'
+
+export default function Admin() {
+
+    const [open, setOpen] = useState(false)
+
+    useEffect(() => {
+        if (window.innerWidth <= 991) {
+            setOpen(true)
+        }
+    }, [])
+
+    return (
+        <>
+            <div className='flex'>
+                <div className={`sider ${open ? 'sider-open' : 'sider-closed'}`}>
+                    <h6 className={`border-b-2 border-gray-100 !text-[#571e85] px-5 py-4 ${open && '!hidden'}`}>PNG Site</h6>
+
+                    <div className={`flex flex-col flex-1 justify-between p-2 ${open && 'items-center'}`}>
+                        <div className={`flex flex-col gap-2 mt-5 ${open && 'mt-15'}`}>
+                            <NavLink to="/admin/dashboard" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><GrAnalytics /> <span className={`sider-text ${open && '!hidden'}`}>Dashboard</span></NavLink>
+                            <NavLink to="/admin/images" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><IoImages /> <span className={`sider-text ${open && '!hidden'}`}>Images</span></NavLink>
+                            <NavLink to="/admin/categories" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><TbCategory2 /> <span className={`sider-text ${open && '!hidden'}`}>Categories</span></NavLink>
+                            <NavLink to="/admin/users" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><FaUsers /> <span className={`sider-text ${open && '!hidden'}`}>Users</span></NavLink>
+                            <NavLink to="/admin/subscriptions" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><IoWallet /> <span className={`sider-text ${open && '!hidden'}`}>Subscriptions</span></NavLink>
+                        </div>
+
+                        <div className='border-t-2 border-gray-100 pt-5'>
+                            <div className='flex gap-2 items-center p-2'>
+                                <CiUser className='bg-[#e8e8e8] p-2 w-8 h-8 rounded-full' />
+                                <div className={`${open && '!hidden'}`}>
+                                    <div>Admin</div>
+                                    <div className='text-[#666] text-[12px]'>admin@gmail.com</div>
+                                </div>
+                            </div>
+
+                            <div className='flex justify-center py-5'>
+                                <button className='flex gap-2 items-center text-red-500 hover:text-red-400'><FiLogOut /> <span className={`sider-text ${open && '!hidden'}`}>Logout</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={`sider-arrow bg-[#e9d6fe] !text-[#571e85] cursor-pointer p-3 rounded-full transition-all duration-200 ease-out ${open ? 'rotate-180' : 'rotate-0'}`} onClick={() => setOpen(prev => !prev)}>
+                        <BsArrowRight />
+                    </div>
+                </div>
+
+                <div className={`content overflow-x-hidden ${open ? '!ml-[50px] md:!ml-[65px]' : '!ml-[220px]'}`}>
+                    <Routes>
+                        <Route index element={<Dashboard />} />
+                        <Route path='/dashboard' element={<Dashboard />} />
+                        <Route path='/images' element={<Images />} />
+                        <Route path='/upload' element={<Upload />} />
+                        <Route path='/categories' element={<Categories />} />
+                        <Route path='/users' element={<Users />} />
+                        <Route path='/subscriptions' element={<Subscriptions />} />
+                    </Routes>
+                </div>
+            </div>
+        </>
+    )
+}

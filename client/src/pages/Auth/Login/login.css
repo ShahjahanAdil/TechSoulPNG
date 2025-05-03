@@ -1,0 +1,28 @@
+.auth-container {
+    background: #e8d1d1;
+    background: radial-gradient(circle, rgba(232, 209, 209, 1) 0%, rgba(145, 55, 230, 1) 100%);
+    animation: auth 0.5s forwards;
+}
+
+@keyframes auth {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.auth-box {
+    border: 2px solid #e8e8e8;
+}
+
+button {
+    color: #fff;
+    transition: all 0.2s ease-out;
+}
+
+button:hover {
+    background-color: #ab62f4;
+}

@@ -1,0 +1,156 @@
+import React, { useRef, useState } from 'react'
+import './upload.css'
+import { IoImages } from 'react-icons/io5'
+import { FiUpload } from 'react-icons/fi'
+import { FaX } from 'react-icons/fa6'
+
+const tags = ["nature", "landscape", "mountain"]
+
+const categories = [
+    {
+        category: "nature",
+        subcategory: ["mountains", "lakes", "rivers"]
+    },
+    {
+        category: "technology",
+        subcategory: ["computer", "laptop"]
+    },
+]
+
+export default function Upload() {
+
+    const fileInputRef = useRef(null)
+    const [preview, setPreview] = useState(null)
+    const [fileName, setFileName] = useState('')
+    const [selectedCategory, setSelectedCategory] = useState("")
+
+    const handleClick = () => {
+        fileInputRef.current.click()
+    }
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0]
+        if (file) {
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/webp']
+            if (!allowedTypes.includes(file.type)) {
+                return alert('Only PNG, JPG or WEBP files are allowed!')
+            }
+            setFileName(file.name)
+            setPreview(URL.createObjectURL(file))
+        }
+    }
+
+    return (
+        <div className='main-container'>
+            <h3 className='flex gap-2 items-center'><IoImages /> Upload New Image</h3>
+            <p className='px-2 py-1 bg-[#f3e9fe] inline-block rounded-[8px] !text-[#9137e6] mt-2'>Add a new image to your stock platform</p>
+
+            <div className='upload-container pb-12 border-b-2 border-gray-200'>
+                <div className='flex flex-col gap-5'>
+                    <div>
+                        <label className='mb-2 font-bold !text-[#333]'>Image Title</label>
+                        <input type="text" name="imageTitle" id="imageTitle" placeholder='Enter a descriptive title' className='w-full px-3 py-2 bg-white rounded-[12px]' />
+                    </div>
+
+                    <div>
+                        <label className='mb-2 font-bold !text-[#333]'>Description</label>
+                        <textarea name="imageDescription" id="imageDescription" rows="8" placeholder='Describe your image' className='w-full px-3 py-2 bg-white rounded-[12px] resize-none overflow-y-auto'></textarea>
+                    </div>
+
+                    <div className='flex gap-5 flex-1'>
+                        <div className='w-full'>
+                            <label className='mb-2 font-bold !text-[#333]'>Category</label>
+                            <select name="category" id="category" defaultValue="" className='w-full px-3 py-2 bg-white rounded-[12px]' onChange={(e) => setSelectedCategory(e.target.value)}>
+                                <option value="" disabled>Select a category</option>
+                                {
+                                    categories.map((cat, i) => {
+                                        return (
+                                            <option key={i} value={cat.category}>{cat.category}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                        </div>
+
+                        <div className='w-full'>
+                            <label className='mb-2 font-bold !text-[#333]'>License</label>
+                            <select name="license" id="license" defaultValue="" className='w-full px-3 py-2 bg-white rounded-[12px]'>
+                                <option value="" disabled>Select a license</option>
+                                <option value="free">Free</option>
+                                <option value="premium">Premium</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    {
+                        selectedCategory &&
+                        (
+                            <>
+                                <div className='w-full'>
+                                    <label className='mb-2 font-bold !text-[#333]'>Subcategory</label>
+                                    <select name="subcategory" id="subcategory" defaultValue="" className='w-full px-3 py-2 bg-white rounded-[12px]'>
+                                        <option value="" disabled>Select a subcategory</option>
+                                        {
+                                            categories.find(cat => cat.category === selectedCategory)?.subcategory.map((sub, i) => {
+                                                return (
+                                                    <option key={i} value={sub}>{sub}</option>
+                                                )
+                                            })
+                                        }
+                                    </select>
+                                </div>
+                            </>
+                        )
+                    }
+
+                    <div>
+                        <label className='mb-2 font-bold !text-[#333]'>Tags</label>
+                        <div className='flex gap-2 mb-3'>
+                            {
+                                tags.map((t, i) => {
+                                    return (
+                                        <div key={i} className='flex gap-2 items-center bg-[#9137e6] text-[#faf5ff] !text-[12px] rounded-full px-3 py-1'>
+                                            {t}
+                                            <FaX className='rounded-full p-[2px] cursor-pointer hover:bg-[#fff] hover:text-[#333]' size={12} />
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        <input type="text" name="imageTitle" id="imageTitle" placeholder='Press Enter to add each tag' className='w-full px-3 py-2 bg-white rounded-[12px]' />
+                        <p className='mt-3'>Press Enter to add each tag</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div className='w-full'>
+                        <label className='mb-2 block font-bold text-[#333]'>Upload Image</label>
+
+                        <div
+                            onClick={handleClick}
+                            className='w-full px-5 py-10 border-2 border-dashed border-[#9137e6] rounded-[12px] text-center cursor-pointer hover:bg-[#f3e9fe] transition-all'
+                        >
+                            <FiUpload className='mx-auto text-[#9137e6] bg-[#f3e9fe] p-3 w-[50px] h-[50px] mb-5 rounded-full' size={30} />
+                            <p className='text-sm mt-2 text-[#666]'>Click or drag to upload an image</p>
+                            <p className='text-sm mt-2 text-[#666]'>PNG, JPG or WEBP</p>
+                        </div>
+
+                        <input type='file' name='image' id='image' ref={fileInputRef} className='hidden' accept='image/jpeg, image/png, image/webp' onChange={handleFileChange} />
+
+                        {preview && (
+                            <div className='mt-5'>
+                                <p className='text-sm font-medium !text-[#333]'>Selected: {fileName}</p>
+                                <img src={preview} alt='Preview' className='mt-2 max-w-[200px] rounded-lg border border-gray-200' />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+
+            <div className='flex gap-3 justify-end mt-5 pb-5 sm:pb-0'>
+                <button className='px-[20px] py-[8px] bg-[#ddd] rounded-[10px] transition-all duration-200 ease-in hover:bg-[#d2d2d2]'>Cancel</button>
+                <button className='px-[20px] py-[8px] text-[#faf5ff] bg-[#9137e6] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[#ab62f4]'>Upload <FiUpload /></button>
+            </div>
+        </div>
+    )
+}
