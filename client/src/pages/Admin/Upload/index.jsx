@@ -6,6 +6,7 @@ import { FiUpload } from 'react-icons/fi'
 import { FaX } from 'react-icons/fa6'
 import { useAuthContext } from '../../../contexts/AuthContext'
 import axios from 'axios'
+import Loader from '../../../components/Loader'
 
 const initialState = { title: "", description: "", category: "", subcategory: "", tags: [], license: "" }
 
@@ -22,6 +23,7 @@ export default function Upload() {
     const fileInputRef = useRef(null)
     const [preview, setPreview] = useState(null)
     const [fileName, setFileName] = useState('')
+    const [selectedFile, setSelectedFile] = useState(null)
 
     useEffect(() => {
         if (userData?.userID) {
@@ -92,11 +94,54 @@ export default function Upload() {
             }
             setFileName(file.name)
             setPreview(URL.createObjectURL(file))
+            setSelectedFile(file)
         }
     }
 
-    const handleImageUpload = () => {
-        console.log(state)
+    const handleImageUpload = async () => {
+        const { title, description, category, subcategory, tags, license } = state;
+
+        const formData = new FormData();
+        formData.append("image", selectedFile);
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("category", category);
+        formData.append("subcategory", subcategory);
+        formData.append("tags", JSON.stringify(tags));
+        formData.append("license", license);
+        formData.append("userEmail", userData.email);
+
+        try {
+            setLoading(true);
+
+            const res = await axios.post(
+                `${import.meta.env.VITE_HOST}/admin/upload-image`,
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data"
+                    }
+                }
+            );
+
+            if (res.status === 201) {
+                window.toastify(res.data.message, "success");
+            }
+        } catch (err) {
+            console.error("Frontend POST error", err.message);
+            window.toastify("Something went wrong. Please try again!", "error");
+        } finally {
+            setLoading(false);
+            setState(initialState);
+            setSelectedCategory("");
+            setPreview(null);
+            setFileName("");
+            setSelectedFile(null);
+        }
+    }
+
+    if (loading) {
+        return <Loader />
     }
 
     return (

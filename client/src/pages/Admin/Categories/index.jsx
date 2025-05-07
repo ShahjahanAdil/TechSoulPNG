@@ -57,7 +57,7 @@ export default function Categories() {
             .then(res => {
                 const { status, data } = res
                 if (status === 201) {
-                    setCategories([...categories, newCategory])
+                    setCategories([...categories, data.newCat])
                     window.toastify(data.message, "success")
                 }
             })

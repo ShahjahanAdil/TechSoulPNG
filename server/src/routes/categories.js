@@ -25,9 +25,9 @@ router.post("/create-category", async (req, res) => {
             return res.status(400).json({ message: "Category already exists" })
         }
 
-        await categoriesModel.create(newCategory)
+        const newCat = await categoriesModel.create(newCategory)
 
-        return res.status(201).json({ message: "New category created!" })
+        return res.status(201).json({ message: "New category created!", newCat })
     }
     catch (error) {
         console.error(error)
