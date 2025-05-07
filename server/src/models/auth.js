@@ -5,13 +5,15 @@ const authSchema = new Schema({
     userID: { type: String, required: true, unique: true },
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    password: { type: String },
     status: { type: String },
     role: { type: String },
     plan: { type: String },
     address: { type: String },
     phone: { type: String },
     downloads: { type: Number },
+    freeDownloads: { type: Number, default: 0 },
+    premiumDownloads: { type: Number, default: 0 },
     uploads: { type: Number },
     points: { type: Number }
 }, { timestamps: true })

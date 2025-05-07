@@ -19,10 +19,5 @@
 }
 
 button {
-    color: #fff;
     transition: all 0.2s ease-out;
-}
-
-button:hover {
-    background-color: #ab62f4;
 }

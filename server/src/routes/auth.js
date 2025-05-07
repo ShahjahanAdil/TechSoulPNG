@@ -73,4 +73,26 @@ router.get("/user", verfiyToken, async (req, res) => {
     }
 })
 
+router.post("/google", async (req, res) => {
+    try {
+        const googleUserData = req.body;
+        const { email } = googleUserData;
+
+        const userFound = await authModel.findOne({ email });
+        if (userFound) {
+            const token = jwt.sign({ userID: userFound.userID }, "secret-key", { expiresIn: '3d' });
+            return res.status(200).json({ message: "Login successful!", token, user: userFound })
+        }
+
+        const createdUser = await authModel.create(googleUserData);
+        const token = jwt.sign({ userID: createdUser.userID }, "secret-key", { expiresIn: '3d' });
+
+        res.status(201).json({ message: "User registered successfully!", token, user: createdUser });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ message: error.message });
+    }
+});
+
 module.exports = router

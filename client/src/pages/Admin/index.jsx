@@ -14,10 +14,22 @@ import { FaUsers } from 'react-icons/fa'
 import Users from './Users'
 import Subscriptions from './Subscriptions'
 import Upload from './Upload'
+import { useAuth0 } from '@auth0/auth0-react'
+import { useAuthContext } from '../../contexts/AuthContext'
 
 export default function Admin() {
 
+    const { user, logout } = useAuth0()
+    const { userData, handleLogout } = useAuthContext()
     const [open, setOpen] = useState(false)
+
+    const logoutFunctions = () => {
+        if (!user) {
+            return handleLogout()
+        }
+        logout()
+        handleLogout()
+    }
 
     useEffect(() => {
         if (window.innerWidth <= 991) {
@@ -50,7 +62,7 @@ export default function Admin() {
                             </div>
 
                             <div className='flex justify-center py-5'>
-                                <button className='flex gap-2 items-center text-red-500 hover:text-red-400'><FiLogOut /> <span className={`sider-text ${open && '!hidden'}`}>Logout</span></button>
+                                <button className='flex gap-2 items-center !text-red-500 hover:!text-red-400' onClick={logoutFunctions}><FiLogOut /> <span className={`sider-text ${open && '!hidden'}`}>Logout</span></button>
                             </div>
                         </div>
                     </div>

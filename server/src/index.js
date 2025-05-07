@@ -23,5 +23,9 @@ app.listen(PORT, () => {
 })
 
 const authRouter = require('./routes/auth')
+const usersRouter = require('./routes/users')
+const categoriesRouter = require('./routes/categories')
 
 app.use('/auth', authRouter)
+app.use('/admin', usersRouter)
+app.use('/admin', categoriesRouter)

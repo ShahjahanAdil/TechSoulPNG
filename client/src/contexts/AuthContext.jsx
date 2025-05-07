@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom"
 
 const AuthContext = createContext()
 
-const initialState = { isAuthenticated: false, user: {} }
+const initialState = { isAuthenticated: false, userData: {} }
 
 const reducer = (state, { type, payload }) => {
     switch (type) {
         case "SET_LOGGED_IN":
-            return { isAuthenticated: true, user: payload.user }
+            return { isAuthenticated: true, userData: payload.user }
         case "SET_PROFILE":
-            return { isAuthenticated: true, user: payload.user }
+            return { isAuthenticated: true, userData: payload.user }
         case "SET_LOGGED_OUT":
             return { ...initialState }
         default:
