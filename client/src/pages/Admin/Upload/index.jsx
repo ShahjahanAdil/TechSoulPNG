@@ -189,21 +189,19 @@ export default function Upload() {
                     {
                         selectedCategory &&
                         (
-                            <>
-                                <div className='w-full'>
-                                    <label className='mb-2 font-bold !text-[#333]'>Subcategory</label>
-                                    <select name="subcategory" id="subcategory" value={state.subcategory} className='w-full px-3 py-2 bg-white rounded-[12px]' onChange={handleOnChange}>
-                                        <option value="" disabled>Select a subcategory</option>
-                                        {
-                                            categories.find(cat => cat.category === selectedCategory)?.subcategories?.map((sub, i) => {
-                                                return (
-                                                    <option key={i} value={sub} className='capitalize'>{sub}</option>
-                                                )
-                                            })
-                                        }
-                                    </select>
-                                </div>
-                            </>
+                            <div className='w-full'>
+                                <label className='mb-2 font-bold !text-[#333]'>Subcategory</label>
+                                <select name="subcategory" id="subcategory" value={state.subcategory} className='w-full px-3 py-2 bg-white rounded-[12px]' onChange={handleOnChange}>
+                                    <option value="" disabled>Select a subcategory</option>
+                                    {
+                                        categories.find(cat => cat.category === selectedCategory)?.subcategories?.map((sub, i) => {
+                                            return (
+                                                <option key={i} value={sub} className='capitalize'>{sub}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
                         )
                     }
 

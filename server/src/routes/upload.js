@@ -20,7 +20,7 @@ router.post("/upload-image", upload.single("image"), async (req, res) => {
         imageID: generateRandomID(),
         imageURL: fileUrl,
         tags: parsedTags,
-        status: "approved"
+        status: "published"
     }
 
     await imagesModel.create(imageData)

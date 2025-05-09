@@ -27,10 +27,12 @@ const authRouter = require('./routes/auth')
 const usersRouter = require('./routes/users')
 const categoriesRouter = require('./routes/categories')
 const uploadRouter = require('./routes/upload')
+const imagesRouter = require('./routes/images')
 
 app.use('/auth', authRouter)
 app.use('/admin', usersRouter)
 app.use('/admin', categoriesRouter)
 app.use('/admin', uploadRouter)
+app.use('/admin', imagesRouter)
 // app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));

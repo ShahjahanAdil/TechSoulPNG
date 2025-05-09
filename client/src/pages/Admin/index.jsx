@@ -20,7 +20,7 @@ import { useAuthContext } from '../../contexts/AuthContext'
 export default function Admin() {
 
     const { user, logout } = useAuth0()
-    const { userData, handleLogout } = useAuthContext()
+    const { handleLogout } = useAuthContext()
     const [open, setOpen] = useState(false)
 
     const logoutFunctions = () => {
@@ -67,7 +67,7 @@ export default function Admin() {
                         </div>
                     </div>
 
-                    <div className={`sider-arrow bg-[#e9d6fe] !text-[#571e85] cursor-pointer p-3 rounded-full transition-all duration-200 ease-out ${open ? 'rotate-180' : 'rotate-0'}`} onClick={() => setOpen(prev => !prev)}>
+                    <div className={`sider-arrow bg-[#e9d6fe] !text-[#571e85] cursor-pointer p-3 rounded-full transition-all duration-200 ease-out ${open ? 'rotate-0' : 'rotate-180'}`} onClick={() => setOpen(prev => !prev)}>
                         <BsArrowRight />
                     </div>
                 </div>
