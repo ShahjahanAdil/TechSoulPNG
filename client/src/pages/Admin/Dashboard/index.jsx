@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './dashboard.css'
 import dummy from '../../../assets/images/dummy.jpg'
 import user from '../../../assets/images/user.png'
@@ -7,8 +7,50 @@ import { IoImages } from 'react-icons/io5'
 import { FaArrowUp, FaDollarSign } from 'react-icons/fa6'
 import { FaUsers } from 'react-icons/fa'
 import { MdHistory } from 'react-icons/md'
+import Loader from '../../../components/Loader'
+import { useAuthContext } from '../../../contexts/AuthContext'
+import axios from 'axios'
 
 export default function Dashboard() {
+
+    const { userData } = useAuthContext()
+    const [imagesCount, setImagesCount] = useState(0)
+    const [usersCount, setUsersCount] = useState(0)
+    const [premiumDownloadsCount, setPremiumDownloadsCount] = useState(0)
+    const [totalRevenue, setTotalRevenue] = useState(0)
+    const [recentUploads, setRecentUploads] = useState([])
+    const [topUsers, setTopUsers] = useState([])
+    const [loading, setLoading] = useState(false)
+
+    useEffect(() => {
+        if (userData?.userID) {
+            fetchData()
+        }
+    }, [userData])
+
+    const fetchData = () => {
+        setLoading(true)
+        axios.get(`${import.meta.env.VITE_HOST}/admin/dashboard`)
+            .then(res => {
+                const { status, data } = res
+                if (status === 200) {
+                    console.log(data.allData.imagesCnt);
+                    
+                }
+            })
+            .catch(err => {
+                console.error('Frontend POST error', err.message)
+                window.toastify("Something went wrong!", "error")
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+    }
+
+    if (loading) {
+        return <Loader />
+    }
+
     return (
         <div className='main-container'>
             <h3 className='flex gap-2 items-center'><GrAnalytics />Dashboard</h3>

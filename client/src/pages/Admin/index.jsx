@@ -16,6 +16,8 @@ import Subscriptions from './Subscriptions'
 import Upload from './Upload'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useAuthContext } from '../../contexts/AuthContext'
+import Menu from './Menu'
+import { BiSend } from 'react-icons/bi'
 
 export default function Admin() {
 
@@ -48,6 +50,7 @@ export default function Admin() {
                             <NavLink to="/admin/dashboard" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><GrAnalytics /> <span className={`sider-text ${open && '!hidden'}`}>Dashboard</span></NavLink>
                             <NavLink to="/admin/images" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><IoImages /> <span className={`sider-text ${open && '!hidden'}`}>Images</span></NavLink>
                             <NavLink to="/admin/categories" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><TbCategory2 /> <span className={`sider-text ${open && '!hidden'}`}>Categories</span></NavLink>
+                            <NavLink to="/admin/menu" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><BiSend /> <span className={`sider-text ${open && '!hidden'}`}>Menu</span></NavLink>
                             <NavLink to="/admin/users" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><FaUsers /> <span className={`sider-text ${open && '!hidden'}`}>Users</span></NavLink>
                             <NavLink to="/admin/subscriptions" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><IoWallet /> <span className={`sider-text ${open && '!hidden'}`}>Subscriptions</span></NavLink>
                         </div>
@@ -79,6 +82,7 @@ export default function Admin() {
                         <Route path='/images' element={<Images />} />
                         <Route path='/upload' element={<Upload />} />
                         <Route path='/categories' element={<Categories />} />
+                        <Route path='/menu' element={<Menu />} />
                         <Route path='/users' element={<Users />} />
                         <Route path='/subscriptions' element={<Subscriptions />} />
                     </Routes>

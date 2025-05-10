@@ -58,6 +58,7 @@ export default function Categories() {
                 const { status, data } = res
                 if (status === 201) {
                     setCategories([...categories, data.newCat])
+                    setOpenModel(false)
                     window.toastify(data.message, "success")
                 }
             })
@@ -244,7 +245,7 @@ export default function Categories() {
             {/* Models */}
 
             <div className={`category-model absolute top-0 left-0 bg-[#9393931c] w-full h-full z-100 transition-all duration-200 ease-linear ${openModel ? 'category-model-open opacity-100' : 'category-model-close opacity-50'}`}>
-                <div className={`category-model-box w-[500px] bg-white p-5 rounded-[12px] transition-all duration-200 ease-linear ${openModel ? 'scale-100' : 'scale-75'}`}>
+                <div className={`category-model-box w-full max-w-[500px] bg-white p-5 rounded-[12px] transition-all duration-200 ease-linear ${openModel ? 'scale-100' : 'scale-75'}`}>
                     <p className='font-bold !text-[#333] flex gap-1 items-center'><BiInfoCircle /> Add New Category</p>
                     <p className='mb-4'>Create a new category for organizing images</p>
                     <input type="text" name="category" id="category" value={createCategoryInput} placeholder='Enter category to add' className='w-full px-3 py-2 bg-white rounded-[12px]' onChange={(e) => setCreateCategoryInput(e.target.value)} />
@@ -261,8 +262,25 @@ export default function Categories() {
                 </div>
             </div>
 
+            <div className={`category-model absolute top-0 left-0 bg-[#9393931c] w-full h-full z-100 transition-all duration-200 ease-linear ${openCatModel ? 'category-model-open opacity-100' : 'category-model-close opacity-50'}`}>
+                <div className={`category-model-box w-full max-w-[500px] bg-white p-5 rounded-[12px] transition-all duration-200 ease-linear ${openCatModel ? 'scale-100' : 'scale-75'}`}>
+                    <p className='font-bold !text-[#333] mb-5 flex gap-1 items-center'><BiInfoCircle /> Update Category</p>
+                    <input type="text" name="category" id="category" value={updatingCategory?.category} placeholder='Enter category to update' className='w-full px-3 py-2 bg-white rounded-[12px]' onChange={(e) => setUpdatingCategory({ ...updatingCategory, category: e.target.value.toLowerCase() })} />
+                    <div className='flex gap-3 justify-end mt-6'>
+                        <button className='px-[20px] py-[8px] bg-[#ddd] rounded-[10px] transition-all duration-200 ease-in hover:bg-[#d2d2d2]'
+                            onClick={() => setOpenCatModel(false)}
+                        >
+                            Cancel
+                        </button>
+                        <button className='px-[20px] py-[8px] text-[#faf5ff] bg-[#9137e6] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[#ab62f4]' onClick={handleUpdateCategoryFunction}>
+                            Update category
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <div className={`category-model absolute top-0 left-0 bg-[#9393931c] w-full h-full z-100 transition-all duration-200 ease-linear ${openSubCatModel ? 'category-model-open opacity-100' : 'category-model-close opacity-50'}`}>
-                <div className={`category-model-box w-[500px] bg-white p-5 rounded-[12px] transition-all duration-200 ease-linear ${openSubCatModel ? 'scale-100' : 'scale-75'}`}>
+                <div className={`category-model-box w-full max-w-[500px] bg-white p-5 rounded-[12px] transition-all duration-200 ease-linear ${openSubCatModel ? 'scale-100' : 'scale-75'}`}>
                     <p className='font-bold !text-[#333] mb-5 flex gap-1 items-center'><BiInfoCircle /> Add New Subcategory</p>
                     <input type="text" name="category" id="category" value={subcategory} placeholder='Enter subcategory to add' className='w-full px-3 py-2 bg-white rounded-[12px]' onChange={(e) => setSubcategory(e.target.value.toLowerCase())} />
                     <div className='flex gap-3 justify-end mt-6'>
@@ -295,23 +313,6 @@ export default function Categories() {
                                     <p className='bg-red-100 !text-red-400 !text-[14px] px-2 py-1 w-fit rounded-[8px]'>There is no subcategory</p>
                             }
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className={`category-model absolute top-0 left-0 bg-[#9393931c] w-full h-full z-100 transition-all duration-200 ease-linear ${openCatModel ? 'category-model-open opacity-100' : 'category-model-close opacity-50'}`}>
-                <div className={`category-model-box w-[500px] bg-white p-5 rounded-[12px] transition-all duration-200 ease-linear ${openCatModel ? 'scale-100' : 'scale-75'}`}>
-                    <p className='font-bold !text-[#333] mb-5 flex gap-1 items-center'><BiInfoCircle /> Update Category</p>
-                    <input type="text" name="category" id="category" value={updatingCategory?.category} placeholder='Enter category to update' className='w-full px-3 py-2 bg-white rounded-[12px]' onChange={(e) => setUpdatingCategory({ ...updatingCategory, category: e.target.value.toLowerCase() })} />
-                    <div className='flex gap-3 justify-end mt-6'>
-                        <button className='px-[20px] py-[8px] bg-[#ddd] rounded-[10px] transition-all duration-200 ease-in hover:bg-[#d2d2d2]'
-                            onClick={() => setOpenCatModel(false)}
-                        >
-                            Cancel
-                        </button>
-                        <button className='px-[20px] py-[8px] text-[#faf5ff] bg-[#9137e6] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[#ab62f4]' onClick={handleUpdateCategoryFunction}>
-                            Update category
-                        </button>
                     </div>
                 </div>
             </div>
