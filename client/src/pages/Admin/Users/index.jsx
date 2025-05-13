@@ -185,7 +185,7 @@ export default function Users() {
     return (
         <div className='main-container relative'>
             <h3 className='flex gap-2 items-center'><FaUsers /> Users</h3>
-            <p className='px-2 py-1 bg-[#f3e9fe] inline-block rounded-[8px] !text-[#9137e6] mt-2'>Manage users and their permissions</p>
+            <p className='px-2 py-1 bg-[var(--md-light)] inline-block rounded-[8px] !text-[var(--dark)] mt-2'>Manage users and their permissions</p>
 
             <div className='flex gap-5 justify-between mt-8'>
                 <form className='relative' onSubmit={handleSearchUser}>
@@ -200,7 +200,7 @@ export default function Users() {
             <div className="w-full overflow-visible mt-8 rounded-[12px]">
                 <div className='overflow-x-auto rounded-[12px]'>
                     <table className="min-w-[600px] w-full text-sm text-left bg-white">
-                        <thead className="text-xs uppercase bg-[#f3e9fe] text-[#9137e6] border-b border-gray-200">
+                        <thead className="text-xs uppercase bg-[var(--md-light)] text-[var(--dark)] border-b border-gray-200">
                             <tr>
                                 <th className="p-4 whitespace-nowrap">Username</th>
                                 <th className="p-4 whitespace-nowrap">Email</th>
@@ -221,7 +221,7 @@ export default function Users() {
                                                     <td className="p-4 text-[#333]">{username}</td>
                                                     <td className="p-4 text-[#333]">{email}</td>
                                                     <td className={`p-4 text-[#333] capitalize`}>
-                                                        <span className={`px-2 rounded-full ${role === 'admin' && 'bg-[#9137e6] text-[#fff] !text-[14px]'} ${role === 'content manager' && 'bg-[#5d74da] text-[#fff] !text-[14px]'}`}>{role}</span>
+                                                        <span className={`px-2 rounded-full ${role === 'admin' && 'bg-[var(--secondary)] text-[#fff] !text-[14px]'} ${role === 'content manager' && 'bg-[#5d74da] text-[#fff] !text-[14px]'}`}>{role}</span>
                                                     </td>
                                                     <td className="p-4 text-[#333] capitalize">
                                                         <span className={`px-2 rounded-full ${plan === 'premium' && 'bg-[#e6d737] text-[#fff] !text-[14px]'}`}>{plan}</span>
@@ -230,7 +230,7 @@ export default function Users() {
                                                     <td className="relative p-4 text-[#333] text-end">
                                                         <button
                                                             ref={buttonRef}
-                                                            className='text-[18px] font-bold px-2 pb-2 rounded-[8px] hover:bg-[#e9d6fe]'
+                                                            className='text-[18px] font-bold px-2 pb-2 rounded-[8px] hover:bg-[var(--md-light)]'
                                                             onClick={(e) => handleActionClick(e, user)}
                                                         >
                                                             ...

@@ -199,9 +199,9 @@ export default function Categories() {
             <div className='categories-top flex gap-5 justify-between items-center'>
                 <div>
                     <h3 className='flex gap-2 items-center'><TbCategory2 /> Categories</h3>
-                    <p className='px-2 py-1 bg-[#f3e9fe] inline-block rounded-[8px] !text-[#9137e6] mt-2'>Manage categories of images</p>
+                    <p className='px-2 py-1 bg-[var(--md-light)] inline-block rounded-[8px] !text-[var(--dark)] mt-2'>Manage categories of images</p>
                 </div>
-                <button className='flex gap-2 items-center bg-[#9137e6] text-[#faf5ff] px-[20px] py-[8px] rounded-[12px] transition-all duration-200 ease-in hover:bg-[#ab62f4]'
+                <button className='flex gap-2 items-center bg-[var(--dark)] text-[var(--x-light)] px-[20px] py-[8px] rounded-[12px] transition-all duration-200 ease-in hover:bg-[var(--md-dark)]'
                     onClick={() => setOpenModel(true)}
                 >
                     Add New Category <FiPlus />
@@ -221,7 +221,7 @@ export default function Categories() {
                                                 cat.subcategories?.map((sub, j) => (
                                                     <span
                                                         key={j}
-                                                        className="px-3 py-1 bg-[#f3e9fe] text-[#9137e6] !text-[12px] text-sm rounded-full capitalize"
+                                                        className="px-3 py-1 bg-[var(--md-light)] text-[var(--primary)] !text-[12px] text-sm rounded-full capitalize"
                                                     >
                                                         {sub}
                                                     </span>
@@ -255,7 +255,7 @@ export default function Categories() {
                         >
                             Cancel
                         </button>
-                        <button className='px-[20px] py-[8px] text-[#faf5ff] bg-[#9137e6] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[#ab62f4]' onClick={handleCreateCategory}>
+                        <button className='px-[20px] py-[8px] text-[var(--x-light)] bg-[var(--dark)] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[var(--md-dark)]' onClick={handleCreateCategory}>
                             Create category
                         </button>
                     </div>
@@ -272,7 +272,7 @@ export default function Categories() {
                         >
                             Cancel
                         </button>
-                        <button className='px-[20px] py-[8px] text-[#faf5ff] bg-[#9137e6] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[#ab62f4]' onClick={handleUpdateCategoryFunction}>
+                        <button className='px-[20px] py-[8px] text-[var(--x-light)] bg-[var(--dark)] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[var(--md-dark)]' onClick={handleUpdateCategoryFunction}>
                             Update category
                         </button>
                     </div>
@@ -289,7 +289,7 @@ export default function Categories() {
                         >
                             Cancel
                         </button>
-                        <button className='px-[20px] py-[8px] text-[#faf5ff] bg-[#9137e6] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[#ab62f4]' onClick={handleAddSubcategory}>
+                        <button className='px-[20px] py-[8px] text-[var(--x-light)] bg-[var(--dark)] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[var(--md-dark)]' onClick={handleAddSubcategory}>
                             Add subcategory
                         </button>
                     </div>
@@ -301,8 +301,8 @@ export default function Categories() {
                                 subCategoriesDetails?.subcategories?.length > 0 ?
                                     subCategoriesDetails?.subcategories?.map((subCat, i) => {
                                         return (
-                                            <div key={i} className='flex justify-between bg-[#f3e9fe] p-2 rounded-[12px]'>
-                                                <li className='text-[#9137e6] capitalize'>{subCat}</li>
+                                            <div key={i} className='flex justify-between bg-[var(--md-light)] p-2 rounded-[12px]'>
+                                                <li className='text-[var(--secondary)] capitalize'>{subCat}</li>
                                                 <div className='flex gap-2 items-center'>
                                                     <CgTrashEmpty className='text-[16px] text-red-500 cursor-pointer hover:text-red-300' onClick={() => handleSubcategoryDelete(subCat)} />
                                                 </div>

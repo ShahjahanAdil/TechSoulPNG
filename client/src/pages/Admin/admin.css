@@ -41,8 +41,8 @@
 }
 
 .sider-link-active {
-    color: #faf5ff;
-    background-color: #9137e6;
+    color: var(--x-light);
+    background-color: var(--dark);
 }
 
 .content {

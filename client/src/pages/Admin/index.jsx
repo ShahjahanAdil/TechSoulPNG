@@ -43,16 +43,16 @@ export default function Admin() {
         <>
             <div className='flex'>
                 <div className={`sider ${open ? 'sider-open' : 'sider-closed'}`}>
-                    <h6 className={`border-b-2 border-gray-100 !text-[#571e85] px-5 py-4 ${open && '!hidden'}`}>PNG Site</h6>
+                    <h6 className={`border-b-2 border-gray-100 !text-[var(--dark)] px-5 py-4 ${open && '!hidden'}`}>PNG Site</h6>
 
                     <div className={`flex flex-col flex-1 justify-between p-2 ${open && 'items-center'}`}>
                         <div className={`flex flex-col gap-2 mt-5 ${open && 'mt-15'}`}>
-                            <NavLink to="/admin/dashboard" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><GrAnalytics /> <span className={`sider-text ${open && '!hidden'}`}>Dashboard</span></NavLink>
-                            <NavLink to="/admin/images" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><IoImages /> <span className={`sider-text ${open && '!hidden'}`}>Images</span></NavLink>
-                            <NavLink to="/admin/categories" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><TbCategory2 /> <span className={`sider-text ${open && '!hidden'}`}>Categories</span></NavLink>
-                            <NavLink to="/admin/menu" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><BiSend /> <span className={`sider-text ${open && '!hidden'}`}>Menu</span></NavLink>
-                            <NavLink to="/admin/users" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><FaUsers /> <span className={`sider-text ${open && '!hidden'}`}>Users</span></NavLink>
-                            <NavLink to="/admin/subscriptions" className={({ isActive }) => `sider-link hover:bg-[#f3e9fe] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><IoWallet /> <span className={`sider-text ${open && '!hidden'}`}>Subscriptions</span></NavLink>
+                            <NavLink to="/admin/dashboard" className={({ isActive }) => `sider-link hover:bg-[var(--md-light)] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><GrAnalytics /> <span className={`sider-text ${open && '!hidden'}`}>Dashboard</span></NavLink>
+                            <NavLink to="/admin/images" className={({ isActive }) => `sider-link hover:bg-[var(--md-light)] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><IoImages /> <span className={`sider-text ${open && '!hidden'}`}>Images</span></NavLink>
+                            <NavLink to="/admin/categories" className={({ isActive }) => `sider-link hover:bg-[var(--md-light)] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><TbCategory2 /> <span className={`sider-text ${open && '!hidden'}`}>Categories</span></NavLink>
+                            <NavLink to="/admin/menu" className={({ isActive }) => `sider-link hover:bg-[var(--md-light)] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><BiSend /> <span className={`sider-text ${open && '!hidden'}`}>Menu</span></NavLink>
+                            <NavLink to="/admin/users" className={({ isActive }) => `sider-link hover:bg-[var(--md-light)] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><FaUsers /> <span className={`sider-text ${open && '!hidden'}`}>Users</span></NavLink>
+                            <NavLink to="/admin/subscriptions" className={({ isActive }) => `sider-link hover:bg-[var(--md-light)] ${open && '!p-[12px] w-fit'} ${isActive && 'sider-link-active'}`}><IoWallet /> <span className={`sider-text ${open && '!hidden'}`}>Subscriptions</span></NavLink>
                         </div>
 
                         <div className='border-t-2 border-gray-100 pt-5'>
@@ -70,7 +70,7 @@ export default function Admin() {
                         </div>
                     </div>
 
-                    <div className={`sider-arrow bg-[#e9d6fe] !text-[#571e85] cursor-pointer p-3 rounded-full transition-all duration-200 ease-out ${open ? 'rotate-0' : 'rotate-180'}`} onClick={() => setOpen(prev => !prev)}>
+                    <div className={`sider-arrow bg-[var(--md-light)] !text-[var(--dark)] cursor-pointer p-3 rounded-full transition-all duration-200 ease-out ${open ? 'rotate-0' : 'rotate-180'}`} onClick={() => setOpen(prev => !prev)}>
                         <BsArrowRight />
                     </div>
                 </div>

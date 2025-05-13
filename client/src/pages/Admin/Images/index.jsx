@@ -235,9 +235,9 @@ export default function Images() {
             <div className='images-top flex gap-5 justify-between items-center'>
                 <div>
                     <h3 className='flex gap-2 items-center'><IoImages /> Images</h3>
-                    <p className='px-2 py-1 bg-[#f3e9fe] inline-block rounded-[8px] !text-[#9137e6] mt-2'>Manage your images stock</p>
+                    <p className='px-2 py-1 bg-[var(--md-light)] inline-block rounded-[8px] !text-[var(--dark)] mt-2'>Manage your images stock</p>
                 </div>
-                <button className='flex gap-2 items-center bg-[#9137e6] text-[#faf5ff] px-[20px] py-[8px] rounded-[12px] transition-all duration-200 ease-in hover:bg-[#ab62f4]' onClick={() => navigate('/admin/upload')}>
+                <button className='flex gap-2 items-center bg-[var(--dark)] !text-[var(--x-light)] px-[20px] py-[8px] rounded-[12px] transition-all duration-200 ease-in hover:bg-[var(--md-dark)]' onClick={() => navigate('/admin/upload')}>
                     Upload New Image <FiUpload />
                 </button>
             </div>
@@ -254,7 +254,7 @@ export default function Images() {
 
             <div className="w-full overflow-x-auto mt-8 rounded-[12px]">
                 <table className="min-w-[600px] w-full text-sm text-left bg-white">
-                    <thead className="text-xs uppercase bg-[#f3e9fe] text-[#9137e6] border-b border-gray-200">
+                    <thead className="text-xs uppercase bg-[var(--md-light)] text-[var(--dark)] border-b border-gray-200">
                         <tr>
                             <th className="p-4 whitespace-nowrap">Image</th>
                             <th className="p-4 whitespace-nowrap">Title</th>
@@ -320,7 +320,7 @@ export default function Images() {
             <div className={`absolute top-0 left-0 flex justify-center items-center w-full min-h-screen bg-[#9393931c] px-5 py-10 z-[99] transition-all duration-200 ease-linear ${openUpdateModel ? 'update-model-open opacity-100' : 'update-model-close opacity-50'}`}>
                 <div className={`bg-white p-5 rounded-[12px] w-full max-w-[600px] shadow-lg transition-all duration-200 ease-linear ${openUpdateModel ? 'scale-100' : 'scale-75'}`}>
                     <div className='flex justify-between mb-3'>
-                        <p className='font-bold !text-[18px] !text-[#9137e6]'>Image Details</p>
+                        <p className='font-bold !text-[18px] !text-[var(--dark)]'>Image Details</p>
                         <BiX className='text-[20px] text-red-500 cursor-pointer transition-all duration-200 ease-linear hover:text-[#888]' onClick={() => setOpenUpdateModel(false)} />
                     </div>
                     <div>
@@ -376,7 +376,7 @@ export default function Images() {
                             {
                                 updatingImage?.tags?.map((t, i) => {
                                     return (
-                                        <div key={i} className='flex gap-2 items-center bg-[#9137e6] text-[#faf5ff] !text-[12px] rounded-full px-3 py-1'>
+                                        <div key={i} className='flex gap-2 items-center bg-[var(--dark)] text-[#faf5ff] !text-[12px] rounded-full px-3 py-1'>
                                             {t}
                                             <BiX className='rounded-full p-[2px] cursor-pointer hover:bg-[#fff] hover:text-[#333]' size={12} onClick={() => handleRemoveTag(t)} />
                                         </div>
@@ -389,7 +389,7 @@ export default function Images() {
                     </div>
 
                     <div className='flex justify-end'>
-                        <button className='mt-5 bg-[#9137e6] text-[#fff] px-[20px] py-[8px] rounded-[12px] transition-all duration-200 ease-linear hover:bg-[#ab62f4]' onClick={handleUpdate}>Save Changes</button>
+                        <button className='mt-5 bg-[var(--dark)] text-[#fff] px-[20px] py-[8px] rounded-[12px] transition-all duration-200 ease-linear hover:bg-[var(--md-dark)]' onClick={handleUpdate}>Save Changes</button>
                     </div>
                 </div>
             </div>

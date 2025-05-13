@@ -199,9 +199,9 @@ export default function Menu() {
             <div className='categories-top flex gap-5 justify-between items-center'>
                 <div>
                     <h3 className='flex gap-2 items-center'><BiSend /> Naivgation Menu</h3>
-                    <p className='px-2 py-1 bg-[#f3e9fe] inline-block rounded-[8px] !text-[#9137e6] mt-2'>Manage navigation menu items and their sub-items</p>
+                    <p className='px-2 py-1 bg-[var(--md-light)] inline-block rounded-[8px] !text-[var(--dark)] mt-2'>Manage navigation menu items and their sub-items</p>
                 </div>
-                <button className='flex gap-2 items-center bg-[#9137e6] text-[#faf5ff] px-[20px] py-[8px] rounded-[12px] transition-all duration-200 ease-in hover:bg-[#ab62f4]'
+                <button className='flex gap-2 items-center bg-[var(--dark)] text-[var(--x-light)] px-[20px] py-[8px] rounded-[12px] transition-all duration-200 ease-in hover:bg-[var(--md-dark)]'
                     onClick={() => setOpenModel(true)}
                 >
                     Add Menu Item <FiPlus />
@@ -210,7 +210,7 @@ export default function Menu() {
 
             <div className="w-full overflow-x-auto mt-8 rounded-[12px]">
                 <table className="min-w-[600px] w-full text-sm text-left bg-white">
-                    <thead className="text-xs uppercase bg-[#f3e9fe] text-[#9137e6] border-b border-gray-200">
+                    <thead className="text-xs uppercase bg-[var(--md-light)] text-[var(--dark)] border-b border-gray-200">
                         <tr>
                             <th className="p-4 whitespace-nowrap">Order</th>
                             <th className="p-4 whitespace-nowrap">Name</th>
@@ -228,7 +228,7 @@ export default function Menu() {
                                             <td className="p-4 text-[#333] capitalize">{itm.item}</td>
                                             <td className="p-4 text-[#333]">
                                                 <div className='flex gap-2 items-center'>
-                                                    {itm.subItems.length} <CgEditExposure className='text-[16px] cursor-pointer text-blue-500 hover:text-blue-300' onClick={() => handleSubItem(itm)} />
+                                                    {itm.subItems.length} <CgEditExposure className='text-[16px] cursor-pointer text-[var(--dark)] hover:text-[var(--secondary)]' onClick={() => handleSubItem(itm)} />
                                                 </div>
                                             </td>
                                             <td className="p-4 text-[#333] flex justify-end">
@@ -264,7 +264,7 @@ export default function Menu() {
                         >
                             Cancel
                         </button>
-                        <button className='px-[20px] py-[8px] text-[#faf5ff] bg-[#9137e6] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[#ab62f4]' onClick={handleCreateMenuItem}>
+                        <button className='px-[20px] py-[8px] text-[var(--x-light)] bg-[var(--dark)] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[var(--md-dark)]' onClick={handleCreateMenuItem}>
                             Add Item
                         </button>
                     </div>
@@ -288,7 +288,7 @@ export default function Menu() {
                         >
                             Cancel
                         </button>
-                        <button className='px-[20px] py-[8px] text-[#faf5ff] bg-[#9137e6] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[#ab62f4]' onClick={handleUpdateItemFunction}>
+                        <button className='px-[20px] py-[8px] text-[var(--x-light)] bg-[var(--dark)] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[var(--md-dark)]' onClick={handleUpdateItemFunction}>
                             Update Item
                         </button>
                     </div>
@@ -305,7 +305,7 @@ export default function Menu() {
                         >
                             Cancel
                         </button>
-                        <button className='px-[20px] py-[8px] text-[#faf5ff] bg-[#9137e6] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[#ab62f4]' onClick={handleAddSubitem}>
+                        <button className='px-[20px] py-[8px] text-[var(--x-light)] bg-[var(--dark)] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[var(--md-dark)]' onClick={handleAddSubitem}>
                             Add Sub-item
                         </button>
                     </div>
@@ -317,8 +317,8 @@ export default function Menu() {
                                 subItemsDetails?.subItems?.length > 0 ?
                                     subItemsDetails?.subItems?.map((subItm, i) => {
                                         return (
-                                            <div key={i} className='flex justify-between bg-[#f3e9fe] p-2 rounded-[12px]'>
-                                                <li className='text-[#9137e6] capitalize'>{subItm}</li>
+                                            <div key={i} className='flex justify-between bg-[var(--md-light)] p-2 rounded-[12px]'>
+                                                <li className='text-[var(--secondary)] capitalize'>{subItm}</li>
                                                 <div className='flex gap-2 items-center'>
                                                     <CgTrashEmpty className='text-[16px] text-red-500 cursor-pointer hover:text-red-300' onClick={() => handleSubItemDelete(subItm)} />
                                                 </div>

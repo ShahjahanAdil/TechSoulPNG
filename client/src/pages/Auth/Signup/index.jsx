@@ -151,7 +151,7 @@ export default function Signup() {
                             value={state.password} onChange={handleChange} />
                     </div>
 
-                    <button className='bg-[#9137e6] text-[#fff] cursor-pointer w-full px-[10px] py-[8px] rounded-[5px] mt-5 hover:bg-[#ab62f4]' onClick={handleSignup}>SIGNUP</button>
+                    <button className='bg-[var(--md-dark)] text-[#fff] cursor-pointer w-full px-[10px] py-[8px] rounded-[5px] mt-5 hover:bg-[var(--dark)]' onClick={handleSignup}>SIGNUP</button>
 
                     <p className='text-center my-5'>- OR -</p>
 
@@ -161,7 +161,7 @@ export default function Signup() {
 
                     <p className='mt-4 flex items-center gap-1'><MdOutlinePrivacyTip className='text-green-600' /> Your information is secure</p>
 
-                    <p className='mt-5'>Already have an account? <Link to='/auth/login' className='text-[#9137e6] font-bold hover:underline'>Login now</Link></p>
+                    <p className='mt-5'>Already have an account? <Link to='/auth/login' className='text-[var(--primary)] font-bold hover:underline'>Login now</Link></p>
                 </form>
             </div>
         </div>

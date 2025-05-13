@@ -1,6 +1,6 @@
 .auth-container {
     background: #e8d1d1;
-    background: radial-gradient(circle, rgba(232, 209, 209, 1) 0%, rgba(145, 55, 230, 1) 100%);
+    background: radial-gradient(circle, rgb(209, 218, 232) 0%, rgb(55, 55, 230) 100%);
     animation: auth 0.5s forwards;
 }
 

@@ -133,7 +133,7 @@ export default function Login() {
                             value={state.password} onChange={handleChange} />
                     </div>
 
-                    <button className='bg-[#9137e6] text-[#fff] cursor-pointer w-full px-[10px] py-[8px] rounded-[5px] mt-5' onClick={handleLogin}>Login</button>
+                    <button className='bg-[var(--md-dark)] text-[#fff] cursor-pointer w-full px-[10px] py-[8px] rounded-[5px] mt-5 hover:bg-[var(--dark)]' onClick={handleLogin}>Login</button>
 
                     <p className='text-center my-5'>- OR -</p>
 
@@ -141,7 +141,7 @@ export default function Login() {
                         <FcGoogle className='text-[18px]' /> Continue With Google
                     </button>
 
-                    <p className='mt-5'>Don't have an account? <Link to='/auth/signup' className='text-[#9137e6] font-bold hover:underline'>Signup now</Link></p>
+                    <p className='mt-5'>Don't have an account? <Link to='/auth/signup' className='text-[var(--primary)] font-bold hover:underline'>Signup now</Link></p>
                 </form>
             </div>
         </div>

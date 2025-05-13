@@ -147,7 +147,7 @@ export default function Upload() {
     return (
         <div className='main-container'>
             <h3 className='flex gap-2 items-center'><IoImages /> Upload New Image</h3>
-            <p className='px-2 py-1 bg-[#f3e9fe] inline-block rounded-[8px] !text-[#9137e6] mt-2'>Add a new image to your stock platform</p>
+            <p className='px-2 py-1 bg-[var(--md-light)] inline-block rounded-[8px] !text-[var(--dark)] mt-2'>Add a new image to your stock platform</p>
 
             <div className='upload-container pb-12 border-b-2 border-gray-200'>
                 <div className='flex flex-col gap-5'>
@@ -230,9 +230,9 @@ export default function Upload() {
 
                         <div
                             onClick={handleClick}
-                            className='w-full px-5 py-10 border-2 border-dashed border-[#9137e6] rounded-[12px] text-center cursor-pointer hover:bg-[#f3e9fe] transition-all'
+                            className='w-full px-5 py-10 border-2 border-dashed border-[var(--dark)] rounded-[12px] text-center cursor-pointer hover:bg-[var(--x-light)] transition-all'
                         >
-                            <FiUpload className='mx-auto text-[#9137e6] bg-[#f3e9fe] p-3 w-[50px] h-[50px] mb-5 rounded-full' size={30} />
+                            <FiUpload className='mx-auto text-[var(--dark)] bg-[var(--md-light)] p-3 w-[50px] h-[50px] mb-5 rounded-full' size={30} />
                             <p className='text-sm mt-2 text-[#666]'>Click or drag to upload an image</p>
                             <p className='text-sm mt-2 text-[#666]'>PNG, JPG or WEBP</p>
                         </div>
@@ -251,7 +251,7 @@ export default function Upload() {
 
             <div className='flex gap-3 justify-end mt-5 pb-5 sm:pb-0'>
                 <button className='px-[20px] py-[8px] bg-[#ddd] rounded-[10px] transition-all duration-200 ease-in hover:bg-[#d2d2d2]' onClick={() => navigate("/admin/images")}>Cancel</button>
-                <button className='px-[20px] py-[8px] text-[#faf5ff] bg-[#9137e6] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[#ab62f4]' onClick={handleImageUpload}>Upload <FiUpload /></button>
+                <button className='px-[20px] py-[8px] text-[var(--x-light)] bg-[var(--dark)] rounded-[10px] flex gap-2 items-center transition-all duration-200 ease-in hover:bg-[var(--md-dark)]' onClick={handleImageUpload}>Upload <FiUpload /></button>
             </div>
         </div>
     )

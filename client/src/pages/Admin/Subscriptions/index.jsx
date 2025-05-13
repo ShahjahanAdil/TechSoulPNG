@@ -5,11 +5,11 @@ export default function Subscriptions() {
     return (
         <div className='main-container'>
             <h3 className='flex gap-2 items-center'><IoWallet /> Subscriptions</h3>
-            <p className='px-2 py-1 bg-[#f3e9fe] inline-block rounded-[8px] !text-[#9137e6] mt-2'>Manage subscriptions history</p>
+            <p className='px-2 py-1 bg-[var(--md-light)] inline-block rounded-[8px] !text-[var(--dark)] mt-2'>Manage subscriptions history</p>
 
             <div className="w-full overflow-x-auto mt-8 rounded-[12px]">
                 <table className="min-w-[600px] w-full text-sm text-left bg-white">
-                    <thead className="text-xs uppercase bg-[#f3e9fe] text-[#9137e6] border-b border-gray-200">
+                    <thead className="text-xs uppercase bg-[var(--md-light)] text-[var(--dark)] border-b border-gray-200">
                         <tr>
                             <th className="p-4 whitespace-nowrap">Username</th>
                             <th className="p-4 whitespace-nowrap">Email</th>

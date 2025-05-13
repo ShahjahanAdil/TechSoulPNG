@@ -9,6 +9,7 @@ import { MdHistory } from 'react-icons/md'
 import Loader from '../../../components/Loader'
 import { useAuthContext } from '../../../contexts/AuthContext'
 import axios from 'axios'
+import Chart from '../../../components/Chart'
 
 export default function Dashboard() {
 
@@ -58,7 +59,7 @@ export default function Dashboard() {
     return (
         <div className='main-container'>
             <h3 className='flex gap-2 items-center'><GrAnalytics />Dashboard</h3>
-            <p className='px-2 py-1 bg-[#f3e9fe] inline-block rounded-[8px] !text-[#9137e6] mt-2'>Overview of your stock images platform</p>
+            <p className='px-2 py-1 bg-[var(--md-light)] inline-block rounded-[8px] !text-[var(--dark)] mt-2'>Overview of your stock images platform</p>
 
             <div className='dashboard-boxes'>
                 <div className="dashboard-box">
@@ -67,7 +68,7 @@ export default function Dashboard() {
                             <p className='!text-[14px]'>Total Images</p>
                             <h4>{imagesCount}</h4>
                         </div>
-                        <IoImages className='bg-[#f3e9fe] text-[#9137e6] w-10 h-10 p-3 rounded-full' />
+                        <IoImages className='bg-[#f3e9fe] text-[var(--dark)] w-10 h-10 p-3 rounded-full' />
                     </div>
                     <p className='mt-4 flex gap-2 items-center !text-[#32c345] !text-[13px]'><FaArrowUp /> 12% from last month</p>
                 </div>
@@ -102,6 +103,8 @@ export default function Dashboard() {
                     <p className='mt-4 flex gap-2 items-center !text-[#32c345] !text-[13px]'><FaArrowUp /> 12% from last month</p>
                 </div>
             </div>
+
+            <Chart />
 
             <div className='dashboard-analytics'>
                 <div className='analytics-box'>

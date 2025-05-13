@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+:root {
+    --dark: #000080;
+    --md-dark: #0c06ac;
+    --primary: #2118ff;
+    --secondary: #3f42ff;
+    --md-light: #e5e8ff;
+    --x-light: #f1f4ff;
+}
+
 @font-face {
     font-family: Roboto;
     src: url("../src/assets/fonts/Roboto.ttf");
@@ -64,7 +73,7 @@ input {
 }
 
 input:focus {
-    border: 1px solid #ab62f4;
+    border: 1px solid var(--secondary);
 }
 
 label {
@@ -79,7 +88,7 @@ textarea {
 }
 
 textarea:focus {
-    border: 1px solid #ab62f4;
+    border: 1px solid var(--secondary);
 }
 
 select {
@@ -89,7 +98,7 @@ select {
 }
 
 select:focus {
-    border: 1px solid #ab62f4;
+    border: 1px solid var(--secondary);
 }
 
 .link {
