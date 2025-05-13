@@ -101,6 +101,11 @@ router.get("/dashboard/chart", async (req, res) => {
             monthlyGrouped[monthKey].push(entry);
         });
 
+        // Sort each month's data by date
+        Object.keys(monthlyGrouped).forEach(month => {
+            monthlyGrouped[month].sort((a, b) => new Date(a.date) - new Date(b.date));
+        });
+
         return res.status(200).json({ message: "Chart data fetched", data: monthlyGrouped });
     } catch (error) {
         console.error(error);

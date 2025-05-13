@@ -6,10 +6,12 @@ import axios from 'axios';
 const Chart = () => {
     const [chartData, setChartData] = useState([]);
     const [selectedMonth, setSelectedMonth] = useState('');
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setLoading(true)
                 const res = await axios.get(`${import.meta.env.VITE_HOST}/admin/dashboard/chart`);
                 const data = res.data.data;
 
@@ -20,6 +22,8 @@ const Chart = () => {
                 }
             } catch (error) {
                 console.error('Error fetching chart data', error);
+            } finally {
+                setLoading(false)
             }
         };
 
@@ -45,7 +49,9 @@ const Chart = () => {
                 </select>
             </div>
 
-            {selectedMonth && chartData[selectedMonth] ? (
+            {loading ? (
+                <div className="text-center py-20 text-gray-500">Loading chart...</div>
+            ) : selectedMonth && chartData[selectedMonth] ? (
                 <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={chartData[selectedMonth]}>
                         <CartesianGrid strokeDasharray="3 3" />
