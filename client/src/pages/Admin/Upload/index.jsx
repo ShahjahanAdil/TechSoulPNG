@@ -101,6 +101,10 @@ export default function Upload() {
     const handleImageUpload = async () => {
         const { title, description, category, subcategory, tags, license } = state;
 
+        if (!title || !description || !categories || !tags, !license) {
+            return window.toastify("Please fill all fields!", "info")
+        }
+
         const formData = new FormData();
         formData.append("image", selectedFile);
         formData.append("title", title);
@@ -207,11 +211,11 @@ export default function Upload() {
 
                     <div>
                         <label className='mb-2 font-bold !text-[#333]'>Tags</label>
-                        <div className='flex gap-2 mb-3'>
+                        <div className='flex flex-wrap gap-2 mb-3'>
                             {
                                 state.tags.map((t, i) => {
                                     return (
-                                        <div key={i} className='flex gap-2 items-center bg-[#9137e6] text-[#faf5ff] !text-[12px] rounded-full px-3 py-1'>
+                                        <div key={i} className='flex gap-2 items-center text-[var(--x-light)] bg-[var(--md-dark)] !text-[12px] rounded-full px-3 py-1'>
                                             {t}
                                             <FaX className='rounded-full p-[2px] cursor-pointer hover:bg-[#fff] hover:text-[#333]' size={12} onClick={() => handleRemoveTag(t)} />
                                         </div>

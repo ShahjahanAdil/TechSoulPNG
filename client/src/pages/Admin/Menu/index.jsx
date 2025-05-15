@@ -253,7 +253,7 @@ export default function Menu() {
 
             {/* Models */}
 
-            <div className={`category-model absolute top-0 left-0 bg-[#9393931c] w-full h-full z-100 transition-all p-5 duration-200 ease-linear ${openModel ? 'category-model-open opacity-100' : 'category-model-close opacity-50'}`}>
+            <div className={`category-model fixed top-0 left-0 bg-[#9393931c] w-full h-full px-2 py-10 z-100 transition-all p-5 duration-200 ease-linear ${openModel ? 'category-model-open opacity-100' : 'category-model-close opacity-50'}`}>
                 <div className={`category-model-box w-full max-w-[500px] bg-white p-5 rounded-[12px] transition-all duration-200 ease-linear ${openModel ? 'scale-100' : 'scale-75'}`}>
                     <p className='font-bold !text-[#333] flex gap-1 items-center'><BiInfoCircle /> Add New Menu Item</p>
                     <p className='mb-4'>Create a new menu item for navigation</p>
@@ -271,7 +271,7 @@ export default function Menu() {
                 </div>
             </div>
 
-            <div className={`category-model absolute top-0 left-0 bg-[#9393931c] w-full h-full z-100 transition-all duration-200 ease-linear ${openItemModel ? 'category-model-open opacity-100' : 'category-model-close opacity-50'}`}>
+            <div className={`category-model fixed top-0 left-0 bg-[#9393931c] w-full h-full px-2 py-10 z-100 transition-all duration-200 ease-linear ${openItemModel ? 'category-model-open opacity-100' : 'category-model-close opacity-50'}`}>
                 <div className={`category-model-box w-full max-w-[500px] bg-white p-5 rounded-[12px] transition-all duration-200 ease-linear ${openItemModel ? 'scale-100' : 'scale-75'}`}>
                     <p className='font-bold !text-[#333] mb-5 flex gap-1 items-center'><BiInfoCircle /> Update Menu Item</p>
                     <div>
@@ -295,7 +295,7 @@ export default function Menu() {
                 </div>
             </div>
 
-            <div className={`category-model absolute top-0 left-0 bg-[#9393931c] w-full h-full z-100 transition-all duration-200 ease-linear ${openSubItemsModel ? 'category-model-open opacity-100' : 'category-model-close opacity-50'}`}>
+            <div className={`category-model fixed top-0 left-0 bg-[#9393931c] w-full h-full px-2 py-10 z-100 transition-all duration-200 ease-linear ${openSubItemsModel ? 'category-model-open opacity-100' : 'category-model-close opacity-50'}`}>
                 <div className={`category-model-box w-full max-w-[500px] bg-white p-5 rounded-[12px] transition-all duration-200 ease-linear ${openSubItemsModel ? 'scale-100' : 'scale-75'}`}>
                     <p className='font-bold !text-[#333] mb-5 flex gap-1 items-center'><BiInfoCircle /> Add New Sub-items</p>
                     <input type="text" name="subItem" id="subItem" value={subItem} placeholder='Enter subitem to add' className='w-full px-3 py-2 bg-white rounded-[12px]' onChange={(e) => setSubItem(e.target.value.toLowerCase())} />

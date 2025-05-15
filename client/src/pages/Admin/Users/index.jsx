@@ -168,7 +168,7 @@ export default function Users() {
             pages.push(
                 <button
                     key={i}
-                    className={`px-3 py-1 rounded-[5px] cursor-pointer hover:!bg-[#666] hover:!text-white ${page === i ? 'bg-[#9137e6] text-white' : 'bg-[#e8e8e8] !text-[#666]'}`}
+                    className={`px-3 py-1 rounded-[5px] cursor-pointer hover:!bg-[#666] hover:!text-white ${page === i ? 'bg-[var(--dark)] text-white' : 'bg-[#e8e8e8] !text-[#666]'}`}
                     onClick={() => setPage(i)}
                 >
                     {i}
@@ -243,7 +243,7 @@ export default function Users() {
                                             <td className="p-4 text-[#333]">{searchedUser.username}</td>
                                             <td className="p-4 text-[#333]">{searchedUser.email}</td>
                                             <td className={`p-4 text-[#333] capitalize`}>
-                                                <span className={`px-2 rounded-full ${searchedUser.role === 'admin' && 'bg-[#9137e6] text-[#fff] !text-[14px]'} ${searchedUser.role === 'content manager' && 'bg-[#5d74da] text-[#fff] !text-[14px]'}`}>{searchedUser.role}</span>
+                                                <span className={`px-2 rounded-full ${searchedUser.role === 'admin' && 'bg-[var(--dark)] text-[#fff] !text-[14px]'} ${searchedUser.role === 'content manager' && 'bg-[#5d74da] text-[#fff] !text-[14px]'}`}>{searchedUser.role}</span>
                                             </td>
                                             <td className="p-4 text-[#333] capitalize">
                                                 <span className={`px-2 rounded-full ${searchedUser.plan === 'premium' && 'bg-[#e6d737] text-[#fff] !text-[14px]'}`}>{searchedUser.plan}</span>
@@ -301,7 +301,7 @@ export default function Users() {
                     <div className='absolute top-0 left-0 flex justify-center items-center w-full h-screen p-5 z-[99]'>
                         <div className='bg-white p-5 rounded-[12px] shadow-lg'>
                             <div className='flex justify-between mb-3'>
-                                <p className='font-bold !text-[18px] !text-[#9137e6]'>User Details</p>
+                                <p className='font-bold !text-[18px] !text-[var(--dark)]'>User Details</p>
                                 <BiX className='text-[20px] text-red-500 cursor-pointer transition-all duration-200 ease-linear hover:text-[#888]' onClick={() => setShowDetails(false)} />
                             </div>
                             <p><span className='font-bold'>ID:</span> {userDetails.userID}</p>
@@ -309,7 +309,7 @@ export default function Users() {
                                 <p><span className='font-bold'>Username:</span> {userDetails.username}</p>
                                 <p><span className='font-bold'>Email:</span> {userDetails.email}</p>
                             </div>
-                            <p className='capitalize'><span className='font-bold'>Role:</span> <span className={`px-2 rounded-full ${userDetails.role === 'admin' && 'bg-[#9137e6] text-[#fff] !text-[12px]'} ${userDetails.role === 'content manager' && 'bg-[#5d74da] text-[#fff] !text-[12px]'}`}>{userDetails.role}</span></p>
+                            <p className='capitalize'><span className='font-bold'>Role:</span> <span className={`px-2 rounded-full ${userDetails.role === 'admin' && 'bg-[var(--dark)] text-[#fff] !text-[12px]'} ${userDetails.role === 'content manager' && 'bg-[#5d74da] text-[#fff] !text-[12px]'}`}>{userDetails.role}</span></p>
                             <p className='capitalize'><span className='font-bold'>Plan:</span> <span className={`px-2 rounded-full ${userDetails.plan === 'premium' && 'bg-[#e6d737] text-[#fff] !text-[12px]'}`}>{userDetails.plan}</span></p>
                             <p className='capitalize'><span className='font-bold'>Status</span>: {userDetails.status}</p>
                             <p><span className='font-bold'>Joined At:</span> {new Date(userDetails.createdAt).toLocaleDateString()}</p>

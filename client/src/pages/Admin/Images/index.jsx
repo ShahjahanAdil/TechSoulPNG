@@ -216,7 +216,7 @@ export default function Images() {
             pages.push(
                 <button
                     key={i}
-                    className={`px-3 py-1 rounded-[5px] cursor-pointer hover:!bg-[#666] hover:!text-white ${((isSearching ? searchPage : page) === i) ? 'bg-[#9137e6] text-white' : 'bg-[#e8e8e8] !text-[#666]'}`}
+                    className={`px-3 py-1 rounded-[5px] cursor-pointer hover:!bg-[#666] hover:!text-white ${((isSearching ? searchPage : page) === i) ? 'bg-[var(--dark)] text-white' : 'bg-[#e8e8e8] !text-[#666]'}`}
                     onClick={() => isSearching ? setSearchPage(i) : setPage(i)}
                 >
                     {i}
@@ -317,8 +317,9 @@ export default function Images() {
                 )
             }
 
-            <div className={`absolute top-0 left-0 flex justify-center items-center w-full min-h-screen bg-[#9393931c] px-5 py-10 z-[99] transition-all duration-200 ease-linear ${openUpdateModel ? 'update-model-open opacity-100' : 'update-model-close opacity-50'}`}>
-                <div className={`bg-white p-5 rounded-[12px] w-full max-w-[600px] shadow-lg transition-all duration-200 ease-linear ${openUpdateModel ? 'scale-100' : 'scale-75'}`}>
+            {/* Update Model */}
+            <div className={`fixed top-0 left-0 flex justify-center items-center w-full min-h-[100vh] bg-[#9393931c] px-5 py-10 z-[99] transition-all duration-200 ease-linear ${openUpdateModel ? 'update-model-open opacity-100' : 'update-model-close opacity-50'}`}>
+                <div className={`bg-white p-5 rounded-[12px] w-full max-w-[600px] max-h-[90vh] overflow-auto shadow-lg transition-all duration-200 ease-linear ${openUpdateModel ? 'scale-100' : 'scale-75'}`}>
                     <div className='flex justify-between mb-3'>
                         <p className='font-bold !text-[18px] !text-[var(--dark)]'>Image Details</p>
                         <BiX className='text-[20px] text-red-500 cursor-pointer transition-all duration-200 ease-linear hover:text-[#888]' onClick={() => setOpenUpdateModel(false)} />
